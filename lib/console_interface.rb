@@ -1,5 +1,4 @@
 class ConsoleInterface
-
   FIGURES =
       Dir["#{__dir__}/../data/figures/*.txt"].
       sort.
@@ -10,13 +9,13 @@ class ConsoleInterface
   end
 
   def print_out
-    puts <<~END
+    puts <<~GAMESTATUS
       Слово: #{word_to_show}
       #{figure}
       Ошибки (#{@game.errors_made}): #{errors_to_show}
       У вас осталось ошибок: #{@game.errors_allowed}
 
-    END
+    GAMESTATUS
 
     if @game.won?
       puts 'Поздравляем, вы выиграли!'
@@ -50,5 +49,4 @@ class ConsoleInterface
     print 'Введите следующую букву: '
     gets[0].upcase
   end
-
 end
