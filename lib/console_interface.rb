@@ -14,7 +14,6 @@ class ConsoleInterface
       puts  ColorizedString["Ошибки (#{@game.errors_made}): #{errors_to_show}"].colorize(:red)
       puts "У вас осталось ошибок: #{@game.errors_allowed}"
 
-
     if @game.won?
       puts 'Поздравляем, вы выиграли!'
     elsif @game.lost?
