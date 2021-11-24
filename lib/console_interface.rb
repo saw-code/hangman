@@ -1,6 +1,6 @@
 class ConsoleInterface
   FIGURES =
-      Dir["#{__dir__}/../data/figures/*.txt"].
+    Dir["#{__dir__}/../data/figures/*.txt"].
       sort.
       map { |file_name| File.read(file_name) }
 
@@ -9,10 +9,10 @@ class ConsoleInterface
   end
 
   def print_out
-      puts  ColorizedString["Слово: #{word_to_show}"].colorize(:blue)
-      puts figure.colorize(:yellow)
-      puts  ColorizedString["Ошибки (#{@game.errors_made}): #{errors_to_show}"].colorize(:red)
-      puts "У вас осталось ошибок: #{@game.errors_allowed}"
+    puts ColorizedString["Слово: #{word_to_show}"].colorize(:blue)
+    puts figure.colorize(:yellow)
+    puts ColorizedString["Ошибки (#{@game.errors_made}): #{errors_to_show}"].colorize(:red)
+    puts "У вас осталось ошибок: #{@game.errors_allowed}"
 
     if @game.won?
       puts 'Поздравляем, вы выиграли!'
@@ -26,16 +26,13 @@ class ConsoleInterface
   end
 
   def word_to_show
-    result =
-      @game.letters_to_guess.map do |letter|
-        if letter == nil
-          "__"
-        else
-          letter
-        end
+    @game.letters_to_guess.map do |letter|
+      if letter == nil
+        "__"
+      else
+        letter
       end
-
-    result.join(" ")
+    end.join(" ")
   end
 
   def errors_to_show
