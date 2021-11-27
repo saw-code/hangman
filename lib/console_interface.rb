@@ -30,7 +30,7 @@ class ConsoleInterface
   end
 
   def errors_to_show
-    @game.errors.join(", ")
+    @game.errors.join(', ')
   end
 
   def get_input
